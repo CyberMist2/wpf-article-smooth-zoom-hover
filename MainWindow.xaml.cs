@@ -10,15 +10,14 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void Border_MouseEnter(object sender, MouseEventArgs e)
-        {
-            image.RaiseEvent(new MouseEventArgs(Mouse.PrimaryDevice, 0) { RoutedEvent = UIElement.MouseEnterEvent });
-        }
+        //private void Border_MouseEnter(object sender, MouseEventArgs e)
+        //{
+        //    image.RaiseEvent(new MouseEventArgs(Mouse.PrimaryDevice, 0) { RoutedEvent = UIElement.MouseEnterEvent });
+        //}
 
-        private void Border_MouseLeave(object sender, MouseEventArgs e)
-        {
-            image.RaiseEvent(new MouseEventArgs(Mouse.PrimaryDevice, 0) { RoutedEvent = UIElement.MouseLeaveEvent });
-        }
-
+        //private void Border_MouseLeave(object sender, MouseEventArgs e)
+        //{
+        //    image.RaiseEvent(new MouseEventArgs(Mouse.PrimaryDevice, 0) { RoutedEvent = UIElement.MouseLeaveEvent });
+        //}
     }
 }

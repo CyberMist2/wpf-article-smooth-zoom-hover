@@ -4,32 +4,31 @@
         Title="MainWindow" WindowStartupLocation="CenterScreen" Width="500" Height="500">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <Grid Width="400">
-            <Border x:Name="border" BorderThickness="0.5" BorderBrush="Black" Background="#FF252525" 
-                    MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave">
+            <Border x:Name="border" BorderThickness="0.5" BorderBrush="Black" Background="#FF252525">
+                <Border.Triggers>
+                    <EventTrigger RoutedEvent="MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation To="1.1" Duration="0:0:0.3" Storyboard.TargetName="image" Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"/>
+                                <DoubleAnimation To="1.1" Duration="0:0:0.3" Storyboard.TargetName="image" Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="image" Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"/>
+                                <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetName="image" Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Border.Triggers>
                 <StackPanel>
                     <Grid Height="224" ClipToBounds="True">
                         <Image x:Name="image" Source="Assets/maxresdefault.jpg" Stretch="Uniform" RenderTransformOrigin="0.5,0.5" Height="224">
                             <Image.RenderTransform>
                                 <ScaleTransform ScaleX="1" ScaleY="1"/>
                             </Image.RenderTransform>
-                            <Image.Triggers>
-                                <EventTrigger RoutedEvent="MouseEnter">
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimation To="1.1" Duration="0:0:0.3" Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"/>
-                                            <DoubleAnimation To="1.1" Duration="0:0:0.3" Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"/>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                                <EventTrigger RoutedEvent="MouseLeave">
-                                    <BeginStoryboard>
-                                        <Storyboard>
-                                            <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleX)"/>
-                                            <DoubleAnimation To="1" Duration="0:0:0.3" Storyboard.TargetProperty="(Image.RenderTransform).(ScaleTransform.ScaleY)"/>
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger>
-                            </Image.Triggers>
                         </Image>
                     </Grid>
                     <Grid Margin="15,10,15,10">
